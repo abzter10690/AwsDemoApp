@@ -5,12 +5,13 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
-  pool: 5
-  timeout: 5000
-  username: abzter
-  password: abbasisdbest
-  socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+  encoding: unicode
+  #pool: 5
+  #timeout: 5000
+  #username: awsdemo
+  #password: abbasisdbest  
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
